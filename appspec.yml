@@ -4,7 +4,7 @@ os: linux
 files:
   - source: /
     destination: /var/www/public_html
-  - source: codedeploy/config/vhosts/website.conf
+  - source: codedeploy/configs/vhosts/website.conf
     destination: /etc/httpd/conf.d
 
 permissions:
