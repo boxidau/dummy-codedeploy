@@ -8,14 +8,14 @@ files:
     destination: /etc/httpd/conf.d
 
 permissions:
-  - object: /var/www/public_html
+  - object: /var/www/public_html/app_root
     pattern: "**"
     owner: ec2-user
     group: apache
     mode: 644
     type:
       - file
-  - object: /var/www/public_html
+  - object: /var/www/public_html/app_root
     pattern: "**"
     owner: ec2-user
     group: apache
