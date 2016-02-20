@@ -2,4 +2,4 @@
 
 /usr/sbin/service httpd stop
 
-rm /etc/apache2/conf.d/*
+rm /etc/httpd/conf.d/*
