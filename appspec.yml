@@ -1,0 +1,38 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www/public_html
+  - source: codedeploy/config/vhosts/website.conf
+    destination: /etc/httpd/conf.d
+
+permissions:
+  - object: /var/www/public_html
+    pattern: "**"
+    owner: ec2-user
+    group: apache
+    mode: 644
+    type:
+      - file
+  - object: /var/www/public_html
+    pattern: "**"
+    owner: ec2-user
+    group: apache
+    mode: 755
+    type:
+      - directory
+
+hooks:
+  BeforeInstall:
+    - location: codedeploy/scripts/first_run.sh
+      timeout: 30
+      runas: root
+    - location: codedeploy/scripts/BeforeInstall.sh
+      timeout: 30
+      runas: root
+  AfterInstall:
+    - location: codedeploy/scripts/AfterInstall.sh
+      timeout: 30
+      runas: root
+
