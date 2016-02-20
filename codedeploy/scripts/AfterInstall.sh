@@ -1,3 +1,4 @@
 #!/bin/bash
 
-/usr/sbin/service httpd restart
+httpd -t
+service httpd restart
